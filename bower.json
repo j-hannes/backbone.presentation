@@ -1,0 +1,31 @@
+{
+  "name": "backbone.presentation",
+  "version": "0.0.1",
+  "authors": [
+    "Johannes Erber <Hannes_E@gmx.de>"
+  ],
+  "description": "presentation for backbone",
+  "main": "app/index.html",
+  "keywords": [
+    "backbone",
+    "reveal"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/J-Hannes/backbone.presentation",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "highlightjs": "~8.0.0",
+    "backbone": "~1.1.0",
+    "bootstrap": "~3.1.0",
+    "jquery": "~2.1.0",
+    "reveal.js": "~2.6.1",
+    "underscore": "~1.5.2"
+  }
+}

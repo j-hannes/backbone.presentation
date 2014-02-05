@@ -1,0 +1,4 @@
+.reveal section .borderless-image {
+  border: none;
+  box-shadow: none;
+}

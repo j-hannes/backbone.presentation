@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>backbone.js presentation</title>
+
+    <meta name="author" content="Johannes Erber">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+    <link rel="stylesheet" href="components/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="components/reveal.js/css/theme/solarized.css"
+          id="theme">
+
+    <link rel="stylesheet" href="css/custom.css" />
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="components/reveal.js/lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="components/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!-- Load additional libraries -->
+    <script src="components/jquery/jquery.js"></script>
+    <script src="components/underscore/underscore.js"></script>
+    <script src="components/backbone/backbone.js"></script>
+
+    <script src="components/highlightjs/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <img src="img/backbonejs.png" class="borderless-image">
+        </section>
+
+        <section>
+        	<h1>Contents</h1>
+        	<ol type="a">
+        		<li class="fragment">an overview</li>
+        		<li class="fragment">interactive demo of parts</li>
+        		<li class="fragment">let's play with it</li>
+        	</ol>
+        </section>
+
+        <section>
+        	<section>
+          	<h1>Overview<h1>
+          </section>
+
+          <section>
+          	<h2>Backbone.js</h2>
+          	<ul>
+          		<li class="fragment">client side code organisation</li>
+          		<li class="fragment">published around 3 years ago</li>
+          	</ul>
+          </section>
+
+        	<section>
+          	<h2>lightweight</h2>
+          	<ul>
+	          	<li class="fragment">it's not a framework, it's a library</li>
+	          	<li class="fragment">xxx SLOC</li>
+	          	<li class="fragment">not opinionated</li>
+	          	<li class="fragment">helps to separate concerns client side</li>
+	          </ul>
+          </section>
+
+          <section>
+          	<h2>MV*</h2>
+          	<ul>
+          		<li class="fragment">Models</li>
+          		<li class="fragment">Views</li>
+          		<li class="fragment">Collections</li>
+          		<li class="fragment">Routers</li>
+          	</ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Events</h1>
+            <ul>
+              <li class="fragment">provides infrastructure</li>
+              <li class="fragment">communication</li>
+            </ul>
+          </section>
+
+          <section data-state="event-demo">
+            <h2>Example code</h2>
+            <pre><code data-trim contenteditable>
+            	function foo() {
+	channel.on('update:progress', function(progress) {
+		$('.example').find('.progress-bar')
+			.css('width', '' + progress + '%')
+			.attr('aria-valuenow', progress)
+			.find('.sr-only').text('' + progress + '% Complete');
+	});
+            </code></pre>
+          </section>
+
+          <section>
+          	<h2>Example: progress bar</h2>
+          	<div class="example">
+	          	<div class="progress progress-striped active">
+	          		<div class="progress-bar" role="progressbar" aria-valuenow="20"
+	          				 aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+	          			<span class="sr-only">20% Complete</span>
+	          		</div>
+	          	</div>
+	          </div>
+          </section>
+
+          <section>
+          	<h2>Advantages</h2>
+          	<ul>
+          		<li class="fragment">loose coupling</li>
+          		<li class="fragment">enables data-driven program style<li>
+          	</ul>
+          </section>
+
+        </section>
+
+        <section>
+          <h1>That's all folks!</h1>
+          <hr>
+          <a href="https://github.com/J-Hannes/backbone.presentation">
+          	https://github.com/J-Hannes/backbone.presentation
+          </a>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="components/reveal.js/lib/js/head.min.js"></script>
+    <script src="components/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'zoom', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          //{ src: 'components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'components/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'components/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    	Reveal.addEventListener('event-demo', function() {
+				window.channel = _.extend({}, Backbone.Events);
+				channel.on('update:progress', function(progress) {
+					$('.example').find('.progress-bar')
+						.css('width', '' + progress + '%')
+						.attr('aria-valuenow', progress)
+						.find('.sr-only').text('' + progress + '% Complete');
+				});
+    	});
+    </script>
+
+  </body>
+</html>
