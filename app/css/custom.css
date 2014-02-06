@@ -2,3 +2,20 @@
   border: none;
   box-shadow: none;
 }
+
+.reveal p i {
+  color: #ccc;
+}
+
+.reveal dl {
+  text-align: left
+}
+
+.reveal dt {
+  font-weight: bold;
+}
+
+.reveal dd {
+  margin-left: 42px;
+  margin-bottom: 23px;
+}
