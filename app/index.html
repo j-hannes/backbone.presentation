@@ -89,11 +89,23 @@
           </section>
 
           <section>
+            <h2>Typical FE scenario</h2>
+            <p>TODO: rework!</p>
+            <ul>
+              <li class="fragment">application logic is planned into backend</li>
+              <li class="fragment">templates</li>
+              <li class="fragment">to enhance user experience some JS is embedded</li>
+              <li class="fragment">FE code grows and becomes unmaintainable</li>
+            </ul>
+          </section>
+
+          <section>
             <h2>The good parts</h2>
             <ul>
               <li class="fragment">allows separation of concerns (MV*) in your front end code</li>
               <li class="fragment">data-driven architecture</li>
               <li class="fragment">modularization of code to be used very well with AMD</li>
+              <li class="fragment">RESTful server communication</li>
             </ul>
           </section>
 
@@ -175,7 +187,8 @@ function updateProgressbar(progress) {
           <section>
             <h1>Models</h1>
             <ul>
-              <li>= data</li>
+              <li>represent data</li>
+              <li>inherit from event object</li>
             </ul>
           </section>
 
@@ -189,13 +202,39 @@ var Beer = Backbone.Model.extend({});
 
         <section>
           <section>
-            <h1>Collections</h1>
+            <h1>Views</h1>
+            <ul>
+              <li>responsible for DOM interaction</li>
+              <li>observing models for changes</li>
+            </ul>
+          </section>
+
+          <section data-state="model-view-demo">
+            <h1>Views</h1>
+            <pre><code class="hljs html" data-trim>
+&lt;div class="beer_container"&gt;&lt;/div&gt;
+            </code></pre>
+
+            <div class="fragment beer_container"></div>
+
+            <pre class="fragment"><code class="hljs javascript" data-trim>
+var BeerView = Backbone.View.extend({
+  render: function() {
+    this.$el.html($('<div class="beer">' + this.model.get('name') + '</div>'));
+  }
+});
+            </code></pre>
+          </section>
+
+          <section>
+            <h1>Views</h1>
+            <p> can also be used without models </p>
           </section>
         </section>
 
         <section>
           <section>
-            <h1>Views</h1>
+            <h1>Collections</h1>
           </section>
         </section>
 
@@ -235,9 +274,7 @@ var Beer = Backbone.Model.extend({});
             </dd>
           </dl>
         </section>
-
       </div>
-
     </div>
 
     <script src="components/reveal.js/lib/js/head.min.js"></script>
@@ -284,6 +321,16 @@ var Beer = Backbone.Model.extend({});
 
       Reveal.addEventListener('model-demo', function() {
         window.Beer = Backbone.Model.extend({});
+      });
+
+      Reveal.addEventListener('model-view-demo', function() {
+        window.BeerView = Backbone.View.extend({
+          render: function() {
+            this.$el.empty()
+              .append($('<img src="http://clipartist.info/openclipart.org/SVG/aungkarns/beer2-200px.png">'))
+              .append($('<div class="beer">' + this.model.get('name') + '</div>'));
+          }
+        });
       });
     </script>
 
