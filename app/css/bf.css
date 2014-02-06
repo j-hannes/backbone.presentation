@@ -1,0 +1,14 @@
+.shelf {
+  width: 180px;
+  height: 120px;
+  border: 1px solid #ccc;
+}
+
+.beer-view {
+  margin: 5px;
+  display: inline-block;
+}
+
+.beer-view img {
+  height: 50px;
+}
